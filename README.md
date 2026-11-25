@@ -68,5 +68,5 @@ Segue l'"Esempio Pillar" del brief del cliente (slide 8), con tre sezioni aggiun
 - Packly non è sul sito: oggi la scheda porta ad Amazon.
 - "Campus M/L" del brief = Commuter M/L sul sito: da confermare.
 - Le 3 guide di approfondimento (slide 7 del brief) non esistono ancora.
-- Foto di apertura e foto del Freeway S in aereo sembrano generate con l'AI: da segnalare o sostituire.
+- Foto: le realizza Noodles (non vanno richieste al cliente).
 - Le 10 domande del cliente andrebbero verificate su dati reali (Search Console, servizio clienti, Amazon).
