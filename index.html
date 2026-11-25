@@ -85,12 +85,15 @@ h2{font-size:var(--s-h2);line-height:1.04;margin-bottom:16px}
 .textlink:hover{text-decoration-thickness:2px}
 
 /* LINK RAPIDI: come il menu categorie del sito; campi di tono, niente linee */
-.quick{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;background:#fff;padding:4px 0}
-.quick a{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;text-decoration:none;padding:28px var(--pad);background:var(--soft);transition:background .2s}
-.quick a:hover{background:#EBEBEB}
-.quick b{display:block;font-size:30px;letter-spacing:-.045em;line-height:1.05}
-.quick small{display:block;font-size:var(--s-small);color:var(--muted);margin-top:6px}
+.quick{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:var(--max);margin:24px auto 0;padding:0 var(--pad)}
+.quick a{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;text-decoration:none;padding:26px 24px;background:var(--ink);color:#fff;transition:background .2s}
+.quick a:hover{background:var(--red)}
+.quick a:active{background:#B8230F}
+.quick b{display:block;font-size:26px;letter-spacing:-.045em;line-height:1.05}
+.quick small{display:block;font-size:var(--s-small);color:#CFCFCF;margin-top:6px}
+.quick a:hover small{color:#fff}
 .quick svg{flex:none;transition:transform .2s var(--ease)}
+.quick svg path{stroke:#fff}
 .quick a:hover svg{transform:translateX(4px)}
 
 .sec{padding:var(--gap) 0 0}
@@ -214,9 +217,9 @@ html.js .hero .txt>:nth-child(4){animation-delay:.4s}
  .hero{min-height:600px;height:auto;padding:80px 0;align-items:flex-end}
  .hero:after{background:linear-gradient(0deg,rgba(0,0,0,.75) 0%,rgba(0,0,0,.5) 55%,rgba(0,0,0,.1) 100%)}
  .hero>img{object-position:74% 40%}
- .quick{grid-template-columns:1fr 1fr}
- .quick b{font-size:22px}
- .quick a{padding:20px}
+ .quick{grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+ .quick b{font-size:20px}
+ .quick a{padding:18px 16px}
  .two,.combo{grid-template-columns:1fr;gap:32px}
  .tiles{grid-template-columns:1fr 1fr}
  .prods{grid-template-columns:repeat(2,minmax(0,1fr))}
