@@ -17,16 +17,15 @@ Le foto sono incluse nel file. Il font Poppins si carica da Google Fonts (serve 
 
 ## Struttura della pagina
 
-1. Apertura con link rapidi alle guide
-2. Capienza: schede 20 / 30 / 50 / 70 L
-3. Come scegliere uno zaino da viaggio
-4. Bagaglio a mano: misure delle compagnie aeree
-5. Confronto zaino, borsone, trolley
-6. Caratteristiche: organizzazione interna, spazio PC, comfort, materiali
-7. Prodotti del focus Viaggio: Velba, Packly, Freeway S, Freeway L, Commuter M, Commuter L, Maket
-8. Combo Maket + Minisac Packable
-9. 12 FAQ (con dati strutturati FAQPage)
-10. Guide collegate (in arrivo)
+Segue l'"Esempio Pillar" del brief del cliente (slide 8):
+
+1. Apertura con foto, titolo e 4 link rapidi alle guide
+2. Come scegliere uno zaino da viaggio
+3. Quale zaino scelgo per il mio viaggio? Schede 20 / 30 / 50 / 70 L
+4. Gli zaini e i borsoni Invicta a confronto: Velba, Freeway S, Commuter M, Commuter L (+ Freeway L, Maket, Packly)
+5. Le caratteristiche che rendono pratico uno zaino
+6. Combo Maket + Minisac Packable
+7. Domande frequenti: 12 FAQ che coprono i prompt del brief (con dati strutturati FAQPage)
 
 ## Punti aperti
 
