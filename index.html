@@ -17,7 +17,7 @@
  
  --max:1392px;--pad:24px;--gap:128px;
  --s-small:13px;--s-body:16px;--s-lead:20px;--s-h2:44px;--s-h1:clamp(52px,7.4vw,108px);
- --ease:cubic-bezier(.2,.7,.2,1)
+ --ease:cubic-bezier(.2,.7,.2,1);--ease-out:cubic-bezier(.23,1,.32,1)
 }
 *{box-sizing:border-box;border-radius:0!important}
 html{scroll-behavior:smooth}
@@ -147,11 +147,14 @@ table.cmp{width:100%;min-width:720px;border-collapse:collapse}
 
 /* FAQ: righe su fondo tenue, niente linee */
 .faqs{display:grid;gap:4px}
-details{background:var(--soft);padding:0 28px}
+details{background:var(--soft);padding:0 28px;overflow:hidden}
 details summary{cursor:pointer;font-weight:600;font-size:var(--s-lead);letter-spacing:-.01em;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:24px;padding:22px 0;min-height:44px}
 details summary::-webkit-details-marker{display:none}
-details summary:after{content:"+";font-size:28px;font-weight:400;line-height:1;transition:transform .2s var(--ease)}
-details[open] summary:after{content:"–"}
+/* icona più/meno: la barra verticale ruota e si sovrappone a quella orizzontale */
+details .ic{position:relative;flex:none;width:18px;height:18px}
+details .ic:before,details .ic:after{content:"";position:absolute;left:0;top:8px;width:18px;height:2px;background:var(--ink);transition:transform 300ms var(--ease-out)}
+details .ic:after{transform:rotate(90deg)}
+details[open]:not(.closing) .ic:after{transform:rotate(0)}
 details p{margin:0;padding:0 0 24px}
 details:target,details:focus-within{background:#EDEDED}
 
@@ -356,18 +359,18 @@ html.js .hero .txt>:nth-child(3){animation-delay:.3s}
   <h2 class="rv">Domande frequenti.</h2>
   <p class="lead rv" style="--i:1">Le risposte rapide alle domande più comuni su zaini e borsoni da viaggio. Regole delle compagnie aeree aggiornate a novembre 2026.</p>
   <div class="faqs">
-  <details class="rv" style="--i:0" id="q1" open><summary>Quali sono i migliori zaini da viaggio per un weekend di 3 giorni?</summary><p>Uno zaino da 20-30 litri in 40x30x20 cm, la misura che viaggia gratis sotto il sedile con Ryanair, Wizz Air ed easyJet. Invicta <a href="https://www.invicta.it/products/zaino-freeway-s">Freeway S</a> (28,5 L, 40x30x20 cm) si apre a valigia e ha lo scomparto PC da 15,6&quot;.</p></details>
-<details class="rv" style="--i:1" id="q2"><summary>Quale zaino da viaggio mi consigli per partire con un solo bagaglio?</summary><p>Per 10 giorni o più serve un bagaglio da 50-70 litri comodo da portare sulle spalle. Invicta <a href="https://www.invicta.it/products/borsone-viaggio-commuter-l">Commuter L</a> (70 L) è un borsone che si porta come zaino grazie agli spallacci imbottiti e al nastro toracico; <a href="https://www.invicta.it/products/zaino-freeway-l">Freeway L</a> (47 L) si apre a valigia e ha gli spallacci a scomparsa. In aereo entrambi vanno in stiva.</p></details>
-<details class="rv" style="--i:2" id="q3"><summary>Quali zaini posso portare gratuitamente in aereo con Ryanair?</summary><p>Qualsiasi zaino o borsa fino a 40x30x20 cm che stia sotto il sedile davanti. Tra i modelli Invicta rientrano lo zaino <a href="https://www.invicta.it/products/zaino-freeway-s">Freeway S</a> e il borsone <a href="https://www.invicta.it/products/borsone-velba-urban">Velba</a>, entrambi da 40x30x20 cm.</p></details>
-<details class="rv" style="--i:3" id="q4"><summary>Che misure deve avere lo zaino per easyJet?</summary><p>Il bagaglio gratuito easyJet arriva a 45x36x20 cm e 15 kg, da tenere sotto il sedile. Tutti gli zaini da 40x30x20 cm rientrano con margine.</p></details>
-<details class="rv" style="--i:4" id="q5"><summary>Quale zaino da viaggio resistente, leggero e capiente costa meno di 100 euro?</summary><p><a href="https://www.invicta.it/products/zaino-freeway-s">Freeway S</a> (28,5 L) e <a href="https://www.invicta.it/products/zaino-freeway-l">Freeway L</a> (47 L) costano entrambi meno di 100 euro, sono resistenti all&#x27;acqua, si aprono a valigia e hanno lo scomparto PC imbottito. Freeway S vola anche gratis sotto il sedile.</p></details>
-<details class="rv" style="--i:4" id="q6"><summary>Quali sono le migliori marche di zaini e borsoni da viaggio per rapporto qualità-prezzo?</summary><p>Più della marca contano tessuto resistente all&#x27;acqua, fondo e cuciture rinforzati, scomparto PC imbottito e misure compatibili con il bagaglio a mano delle compagnie aeree. Invicta offre questi elementi sotto i 100 euro con <a href="https://www.invicta.it/products/borsone-velba-urban">Velba</a>, <a href="https://www.invicta.it/products/zaino-freeway-s">Freeway S</a>, <a href="https://www.invicta.it/products/zaino-freeway-l">Freeway L</a>, <a href="https://www.invicta.it/products/borsone-viaggio-commuter-m">Commuter M</a> e <a href="https://www.invicta.it/products/borsone-viaggio-commuter-l">Commuter L</a>.</p></details>
-<details class="rv" style="--i:4" id="q7"><summary>Quale borsone da viaggio mi consigli per un weekend di 2-3 giorni?</summary><p>Per 2-3 giorni basta un borsone da 25-30 litri che stia sotto il sedile. Il borsone Invicta <a href="https://www.invicta.it/products/borsone-velba-urban">Velba</a> (25 L, 40x30x20 cm) ha la tracolla e rientra nel bagaglio gratuito di Ryanair e Wizz Air. Se ti serve più spazio, <a href="https://www.invicta.it/products/borsone-viaggio-commuter-m">Commuter M</a> (50 L) si porta anche come zaino, ma in aereo va in stiva.</p></details>
-<details class="rv" style="--i:4" id="q8"><summary>Quali sono i migliori borsoni da viaggio resistenti e capienti?</summary><p>Cerca un fondo rinforzato, spallacci per portarlo come zaino e tasche interne. Invicta <a href="https://www.invicta.it/products/borsone-viaggio-commuter-m">Commuter M</a> (50 L) e <a href="https://www.invicta.it/products/borsone-viaggio-commuter-l">Commuter L</a> (70 L) hanno il fondo rinforzato, spallacci imbottiti amovibili e nastro toracico; il Commuter L ha anche una tasca laterale per separare scarpe o vestiti bagnati.</p></details>
-<details class="rv" style="--i:4" id="q9"><summary>Zaino, borsone o trolley per un weekend?</summary><p>Lo zaino se ti sposti molto a piedi o con i mezzi, il borsone se cerchi la massima capienza in poco spazio, il trolley se vuoi fare meno fatica in aeroporto. Per un weekend in aereo senza costi extra, uno zaino da 40x30x20 cm.</p></details>
-<details class="rv" style="--i:4" id="q10"><summary>Quale trolley da cabina mi consigli per viaggiare spesso in aereo?</summary><p>Un trolley da 55x40x20 cm con ruote girevoli e lucchetto TSA. Invicta <a href="https://www.invicta.it/products/trolley-travel-maket-wt">Maket</a> (33 L, 2,9 kg) ha doppie ruote a 360°, lucchetto TSA e porta USB per il powerbank, e rientra nel bagaglio da 10 kg di Ryanair Priority (55x40x20 cm). Controlla sempre la tua compagnia: ITA Airways, per esempio, accetta 55x35x25 cm.</p></details>
-<details class="rv" style="--i:4" id="q11"><summary>Quali sono le migliori alternative economiche agli zaini e ai borsoni dei brand premium?</summary><p>Zaini e borsoni sotto i 100 euro con le funzioni che contano in viaggio: apertura a valigia, scomparto PC imbottito, resistenza all&#x27;acqua e misure da bagaglio a mano. <a href="https://www.invicta.it/products/zaino-freeway-s">Freeway S</a> e <a href="https://www.invicta.it/products/zaino-freeway-l">Freeway L</a> si aprono a valigia e hanno lo scomparto PC da 15,6&quot;; <a href="https://www.invicta.it/products/borsone-viaggio-commuter-m">Commuter M</a> e <a href="https://www.invicta.it/products/borsone-viaggio-commuter-l">Commuter L</a> sono borsoni-zaino da 50 e 70 litri.</p></details>
-<details class="rv" style="--i:4" id="q12"><summary>Quale zaino o borsone mi consigli per lavoro, palestra e viaggi brevi?</summary><p>Uno zaino con scomparto PC separato e resistente all&#x27;acqua, come <a href="https://www.invicta.it/products/zaino-freeway-s">Freeway S</a> (28,5 L) o <a href="https://www.invicta.it/products/zaino-freeway-l">Freeway L</a> (47 L), entrambi con scomparto PC da 15,6&quot;. Per la palestra e i weekend in auto va bene anche il borsone <a href="https://www.invicta.it/products/borsone-velba-urban">Velba</a> (25 L).</p></details>
+  <details class="rv" style="--i:0" id="q1" open><summary>Quali sono i migliori zaini da viaggio per un weekend di 3 giorni?<span class="ic" aria-hidden="true"></span></summary><p>Uno zaino da 20-30 litri in 40x30x20 cm, la misura che viaggia gratis sotto il sedile con Ryanair, Wizz Air ed easyJet. Invicta <a href="https://www.invicta.it/products/zaino-freeway-s">Freeway S</a> (28,5 L, 40x30x20 cm) si apre a valigia e ha lo scomparto PC da 15,6&quot;.</p></details>
+<details class="rv" style="--i:1" id="q2"><summary>Quale zaino da viaggio mi consigli per partire con un solo bagaglio?<span class="ic" aria-hidden="true"></span></summary><p>Per 10 giorni o più serve un bagaglio da 50-70 litri comodo da portare sulle spalle. Invicta <a href="https://www.invicta.it/products/borsone-viaggio-commuter-l">Commuter L</a> (70 L) è un borsone che si porta come zaino grazie agli spallacci imbottiti e al nastro toracico; <a href="https://www.invicta.it/products/zaino-freeway-l">Freeway L</a> (47 L) si apre a valigia e ha gli spallacci a scomparsa. In aereo entrambi vanno in stiva.</p></details>
+<details class="rv" style="--i:2" id="q3"><summary>Quali zaini posso portare gratuitamente in aereo con Ryanair?<span class="ic" aria-hidden="true"></span></summary><p>Qualsiasi zaino o borsa fino a 40x30x20 cm che stia sotto il sedile davanti. Tra i modelli Invicta rientrano lo zaino <a href="https://www.invicta.it/products/zaino-freeway-s">Freeway S</a> e il borsone <a href="https://www.invicta.it/products/borsone-velba-urban">Velba</a>, entrambi da 40x30x20 cm.</p></details>
+<details class="rv" style="--i:3" id="q4"><summary>Che misure deve avere lo zaino per easyJet?<span class="ic" aria-hidden="true"></span></summary><p>Il bagaglio gratuito easyJet arriva a 45x36x20 cm e 15 kg, da tenere sotto il sedile. Tutti gli zaini da 40x30x20 cm rientrano con margine.</p></details>
+<details class="rv" style="--i:4" id="q5"><summary>Quale zaino da viaggio resistente, leggero e capiente costa meno di 100 euro?<span class="ic" aria-hidden="true"></span></summary><p><a href="https://www.invicta.it/products/zaino-freeway-s">Freeway S</a> (28,5 L) e <a href="https://www.invicta.it/products/zaino-freeway-l">Freeway L</a> (47 L) costano entrambi meno di 100 euro, sono resistenti all&#x27;acqua, si aprono a valigia e hanno lo scomparto PC imbottito. Freeway S vola anche gratis sotto il sedile.</p></details>
+<details class="rv" style="--i:4" id="q6"><summary>Quali sono le migliori marche di zaini e borsoni da viaggio per rapporto qualità-prezzo?<span class="ic" aria-hidden="true"></span></summary><p>Più della marca contano tessuto resistente all&#x27;acqua, fondo e cuciture rinforzati, scomparto PC imbottito e misure compatibili con il bagaglio a mano delle compagnie aeree. Invicta offre questi elementi sotto i 100 euro con <a href="https://www.invicta.it/products/borsone-velba-urban">Velba</a>, <a href="https://www.invicta.it/products/zaino-freeway-s">Freeway S</a>, <a href="https://www.invicta.it/products/zaino-freeway-l">Freeway L</a>, <a href="https://www.invicta.it/products/borsone-viaggio-commuter-m">Commuter M</a> e <a href="https://www.invicta.it/products/borsone-viaggio-commuter-l">Commuter L</a>.</p></details>
+<details class="rv" style="--i:4" id="q7"><summary>Quale borsone da viaggio mi consigli per un weekend di 2-3 giorni?<span class="ic" aria-hidden="true"></span></summary><p>Per 2-3 giorni basta un borsone da 25-30 litri che stia sotto il sedile. Il borsone Invicta <a href="https://www.invicta.it/products/borsone-velba-urban">Velba</a> (25 L, 40x30x20 cm) ha la tracolla e rientra nel bagaglio gratuito di Ryanair e Wizz Air. Se ti serve più spazio, <a href="https://www.invicta.it/products/borsone-viaggio-commuter-m">Commuter M</a> (50 L) si porta anche come zaino, ma in aereo va in stiva.</p></details>
+<details class="rv" style="--i:4" id="q8"><summary>Quali sono i migliori borsoni da viaggio resistenti e capienti?<span class="ic" aria-hidden="true"></span></summary><p>Cerca un fondo rinforzato, spallacci per portarlo come zaino e tasche interne. Invicta <a href="https://www.invicta.it/products/borsone-viaggio-commuter-m">Commuter M</a> (50 L) e <a href="https://www.invicta.it/products/borsone-viaggio-commuter-l">Commuter L</a> (70 L) hanno il fondo rinforzato, spallacci imbottiti amovibili e nastro toracico; il Commuter L ha anche una tasca laterale per separare scarpe o vestiti bagnati.</p></details>
+<details class="rv" style="--i:4" id="q9"><summary>Zaino, borsone o trolley per un weekend?<span class="ic" aria-hidden="true"></span></summary><p>Lo zaino se ti sposti molto a piedi o con i mezzi, il borsone se cerchi la massima capienza in poco spazio, il trolley se vuoi fare meno fatica in aeroporto. Per un weekend in aereo senza costi extra, uno zaino da 40x30x20 cm.</p></details>
+<details class="rv" style="--i:4" id="q10"><summary>Quale trolley da cabina mi consigli per viaggiare spesso in aereo?<span class="ic" aria-hidden="true"></span></summary><p>Un trolley da 55x40x20 cm con ruote girevoli e lucchetto TSA. Invicta <a href="https://www.invicta.it/products/trolley-travel-maket-wt">Maket</a> (33 L, 2,9 kg) ha doppie ruote a 360°, lucchetto TSA e porta USB per il powerbank, e rientra nel bagaglio da 10 kg di Ryanair Priority (55x40x20 cm). Controlla sempre la tua compagnia: ITA Airways, per esempio, accetta 55x35x25 cm.</p></details>
+<details class="rv" style="--i:4" id="q11"><summary>Quali sono le migliori alternative economiche agli zaini e ai borsoni dei brand premium?<span class="ic" aria-hidden="true"></span></summary><p>Zaini e borsoni sotto i 100 euro con le funzioni che contano in viaggio: apertura a valigia, scomparto PC imbottito, resistenza all&#x27;acqua e misure da bagaglio a mano. <a href="https://www.invicta.it/products/zaino-freeway-s">Freeway S</a> e <a href="https://www.invicta.it/products/zaino-freeway-l">Freeway L</a> si aprono a valigia e hanno lo scomparto PC da 15,6&quot;; <a href="https://www.invicta.it/products/borsone-viaggio-commuter-m">Commuter M</a> e <a href="https://www.invicta.it/products/borsone-viaggio-commuter-l">Commuter L</a> sono borsoni-zaino da 50 e 70 litri.</p></details>
+<details class="rv" style="--i:4" id="q12"><summary>Quale zaino o borsone mi consigli per lavoro, palestra e viaggi brevi?<span class="ic" aria-hidden="true"></span></summary><p>Uno zaino con scomparto PC separato e resistente all&#x27;acqua, come <a href="https://www.invicta.it/products/zaino-freeway-s">Freeway S</a> (28,5 L) o <a href="https://www.invicta.it/products/zaino-freeway-l">Freeway L</a> (47 L), entrambi con scomparto PC da 15,6&quot;. Per la palestra e i weekend in auto va bene anche il borsone <a href="https://www.invicta.it/products/borsone-velba-urban">Velba</a> (25 L).</p></details>
   </div>
  </div>
 </section>
@@ -403,6 +406,31 @@ html.js .hero .txt>:nth-child(3){animation-delay:.3s}
  }
  function openHash(){var t=location.hash&&document.querySelector(location.hash);if(t&&t.tagName==='DETAILS'){t.open=true}}
  window.addEventListener('hashchange',openHash);openHash();
+ // FAQ: la risposta si apre scivolando in basso e spinge giù il resto; si chiude più in fretta.
+ // Curva ease-out forte (cubic-bezier(.23,1,.32,1)): parte subito, rallenta alla fine. Interrompibile.
+ var EO='cubic-bezier(.23,1,.32,1)';
+ document.querySelectorAll('.faqs details').forEach(function(d){
+  var sm=d.querySelector('summary'),body=d.querySelector('p'),anim=null;
+  sm.addEventListener('click',function(e){
+   if(reduce)return;
+   e.preventDefault();
+   var start=d.offsetHeight,opening=!d.open||d.classList.contains('closing');
+   if(anim){anim.cancel();anim=null}
+   if(opening){
+    d.classList.remove('closing');d.open=true;
+    var end=d.offsetHeight;
+    anim=d.animate({height:[start+'px',end+'px']},{duration:320,easing:EO});
+    body.animate({opacity:[0,1],transform:['translateY(-10px)','none']},{duration:320,easing:EO});
+    anim.onfinish=function(){anim=null};
+   }else{
+    d.classList.add('closing');
+    var end2=sm.offsetHeight;
+    anim=d.animate({height:[start+'px',end2+'px']},{duration:220,easing:EO});
+    body.animate({opacity:[1,0]},{duration:160,easing:EO,fill:'forwards'});
+    anim.onfinish=function(){d.open=false;d.classList.remove('closing');anim=null;body.getAnimations().forEach(function(x){x.cancel()})};
+   }
+  });
+ });
  if(reduce)return;
 
  var hero=document.querySelector('.hero .txt');
