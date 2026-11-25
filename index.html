@@ -86,15 +86,20 @@ h2{font-size:var(--s-h2);line-height:1.04;margin-bottom:16px}
 
 /* LINK RAPIDI: come il menu categorie del sito; campi di tono, niente linee */
 .quick{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:var(--max);margin:24px auto 0;padding:0 var(--pad)}
-.quick a{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;text-decoration:none;padding:26px 24px;background:var(--ink);color:#fff;transition:background .2s}
-.quick a:hover{background:var(--red)}
-.quick a:active{background:#B8230F}
+.quick a{position:relative;isolation:isolate;overflow:hidden;display:flex;justify-content:space-between;align-items:flex-end;gap:12px;text-decoration:none;padding:26px 24px;background:var(--ink);color:#fff}
+/* hover: il blu royal entra da sinistra ed esce verso destra (ease-out forte, uscita più rapida dell'entrata) */
+.quick a:before{content:"";position:absolute;inset:0;z-index:-1;background:#1D4ED8;transform:scaleX(0);transform-origin:right center;transition:transform 220ms cubic-bezier(.23,1,.32,1)}
+.quick a:focus-visible:before{transform:scaleX(1);transform-origin:left center}
+@media (hover:hover) and (pointer:fine){
+ .quick a:hover:before{transform:scaleX(1);transform-origin:left center;transition-duration:380ms}
+ .quick a:hover svg{transform:translateX(6px)}
+}
+.quick a:active:before{transform:scaleX(1);transform-origin:left center}
 .quick b{display:block;font-size:26px;letter-spacing:-.045em;line-height:1.05}
 .quick small{display:block;font-size:var(--s-small);color:#CFCFCF;margin-top:6px}
-.quick a:hover small{color:#fff}
-.quick svg{flex:none;transition:transform .2s var(--ease)}
+.quick svg{flex:none;transition:transform 380ms cubic-bezier(.23,1,.32,1)}
 .quick svg path{stroke:#fff}
-.quick a:hover svg{transform:translateX(4px)}
+
 
 .sec{padding:var(--gap) 0 0}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
@@ -245,6 +250,7 @@ html.js .hero .txt>:nth-child(4){animation-delay:.4s}
  html.js .photo.rv img,html.js .rv .im img,html.js .tile.rv img{transform:none}
  html.js .hero .txt>*{animation:none}
  .btn,.quick svg,.prod .im img{transition:none}
+ .quick a:before{transition:none}
 }
 </style>
 </head>
